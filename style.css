@@ -6,18 +6,19 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
-html, body {
-    font-size: 16px;
+html,
+body {
+  font-size: 16px;
 }
 .container {
+    position: relative;
   display: flex;
   row-gap: 10px;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
   width: 100%;
-  overflow: hidden;
   padding: 15px;
 }
 .container .image {
@@ -26,6 +27,8 @@ html, body {
   width: 100%;
   object-fit: cover;
   z-index: -1;
+  top: 0;
+  left: 0;
 }
 body::after {
   position: absolute;
@@ -51,16 +54,18 @@ body::after {
   color: #fff;
   max-width: 550px;
   text-align: center;
-  margin-bottom: 15px;
+  margin: 0 auto;
 }
 .container .time-content {
   display: flex;
   column-gap: 1.5rem;
   align-items: center;
+  margin: 10px auto;
   border: 1px solid white;
   padding: 1.5rem;
   border-radius: 0.5rem;
   background: rgba(250, 250, 250, 0.2);
+  max-width: 550px;
 }
 .time-content .time {
   display: flex;
@@ -79,21 +84,51 @@ body::after {
   font-weight: 600;
   font-size: 1rem;
 }
-.email-content {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
+.time-content > * {
+  min-width: 6.875rem;
 }
-
+.contact-wrapper {
+    max-width: 500px;
+    margin: 10px auto;
+}
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 15px;
+    margin-top: 15px;
+}
+.icon-wrapper a {
+    max-width: 50px;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in-out;
+}
+.icon-wrapper a:hover img {
+    transform: scale(1.4);
+}
+.icon-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: all .3s ease-in-out;
+}
 @media screen and (max-width: 575px) {
   .container h2 {
     font-size: 2.5rem;
   }
-  html, body {
+  html,
+  body {
     font-size: 14px;
   }
   .time .number {
     font-size: 3.5rem;
+  }
+  .time-content > * {
+    min-width: 4.875rem;
   }
 }
